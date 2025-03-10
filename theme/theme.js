@@ -66,12 +66,10 @@ export const typography = {
   headings: {
     h1: {
       fontSize: 48,
-      lineHeight: 58, // ~48 * 1.2
       fontFamily: "Manrope_700Bold",
     },
     h2: {
       fontSize: 40,
-      lineHeight: 48, // ~40 * 1.2
       fontFamily: "Manrope_700Bold",
     },
     h3: {
@@ -81,17 +79,14 @@ export const typography = {
     },
     h4: {
       fontSize: 24,
-      lineHeight: 29, // ~24 * 1.2
       fontFamily: "Manrope_700Bold",
     },
     h5: {
       fontSize: 20,
-      lineHeight: 24, // ~20 * 1.2
       fontFamily: "Manrope_700Bold",
     },
     h6: {
       fontSize: 16,
-      lineHeight: 19, // ~16 * 1.2
       fontFamily: "Manrope_700Bold",
     },
   },
@@ -100,22 +95,18 @@ export const typography = {
     xlarge: {
       bold: {
         fontSize: 18,
-        lineHeight: 27,
         fontFamily: "Manrope_700Bold",
       },
       semibold: {
         fontSize: 18,
-        lineHeight: 27,
         fontFamily: "Manrope_600SemiBold",
       },
       medium: {
         fontSize: 18,
-        lineHeight: 27,
         fontFamily: "Manrope_500Medium",
       },
       regular: {
         fontSize: 18,
-        lineHeight: 27,
         fontFamily: "Manrope_400Regular",
       },
     },
@@ -123,22 +114,18 @@ export const typography = {
     large: {
       bold: {
         fontSize: 16,
-        lineHeight: 26, // 160% of 16 => 25.6 ~ 26
         fontFamily: "Manrope_700Bold",
       },
       semibold: {
         fontSize: 16,
-        lineHeight: 26,
         fontFamily: "Manrope_600SemiBold",
       },
       medium: {
         fontSize: 16,
-        lineHeight: 26,
         fontFamily: "Manrope_500Medium",
       },
       regular: {
         fontSize: 16,
-        lineHeight: 26,
         fontFamily: "Manrope_400Regular",
       },
     },
@@ -146,22 +133,18 @@ export const typography = {
     medium: {
       bold: {
         fontSize: 14,
-        lineHeight: 23, // 165% of 14 => 23.1 ~ 23
         fontFamily: "Manrope_700Bold",
       },
       semibold: {
         fontSize: 14,
-        lineHeight: 23,
         fontFamily: "Manrope_600SemiBold",
       },
       medium: {
         fontSize: 14,
-        lineHeight: 23,
         fontFamily: "Manrope_500Medium",
       },
       regular: {
         fontSize: 14,
-        lineHeight: 23,
         fontFamily: "Manrope_400Regular",
       },
     },
@@ -169,22 +152,18 @@ export const typography = {
     small: {
       bold: {
         fontSize: 12,
-        lineHeight: 20, // 170% of 12 => 20.4 ~ 20
         fontFamily: "Manrope_700Bold",
       },
       semibold: {
         fontSize: 12,
-        lineHeight: 20,
         fontFamily: "Manrope_600SemiBold",
       },
       medium: {
         fontSize: 12,
-        lineHeight: 20,
         fontFamily: "Manrope_500Medium",
       },
       regular: {
         fontSize: 12,
-        lineHeight: 20,
         fontFamily: "Manrope_400Regular",
       },
     },
