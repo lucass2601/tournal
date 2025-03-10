@@ -12,27 +12,43 @@ const TabLayout = () => {
       screenOptions={{
         headerShown: false,
         tabBarActiveTintColor: colors["primary-600"],
+        tabBarInactiveTintColor: colors["grey-500"],
       }}
     >
       <Tabs.Screen
         name="index"
         options={{
           title: "Home",
-          tabBarIcon: ({ color }) => <Home color={color} />,
+          tabBarIcon: ({ color, focused }) => (
+            <Home
+              color={color}
+              fill={focused ? "transparent" : "transparent"}
+            />
+          ),
         }}
       />
       <Tabs.Screen
         name="customize"
         options={{
           title: "Customize",
-          tabBarIcon: ({ color }) => <Filter color={color} />,
+          tabBarIcon: ({ color, focused }) => (
+            <Filter
+              color={color}
+              fill={focused ? "transparent" : "transparent"}
+            />
+          ),
         }}
       />
       <Tabs.Screen
         name="settings"
         options={{
           title: "Settings",
-          tabBarIcon: ({ color }) => <Settings color={color} />,
+          tabBarIcon: ({ color, focused }) => (
+            <Settings
+              color={color}
+              fill={focused ? "transparent" : "transparent"}
+            />
+          ),
         }}
       />
     </Tabs>
