@@ -1,9 +1,9 @@
-import { Pressable, View, StyleSheet, Text } from "react-native";
-import { colors, typography } from "@/theme/theme";
+import { Pressable, View, StyleSheet } from "react-native";
+import { colors } from "@/theme/theme";
 
 const RadioButton = ({ selected = false, onPress, style, ...props }) => {
   return (
-    <Pressable style={[styles.container, style]} onPress={onPress} {...props}>
+    <Pressable style={style} onPress={onPress} {...props}>
       <View style={[styles.radio, selected && styles.radioSelected]}>
         {selected && <View style={styles.radioInner} />}
       </View>
