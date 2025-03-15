@@ -50,6 +50,12 @@ export default function RootLayout() {
               headerShown: false,
             }}
           />
+          <Stack.Screen
+            name="wizard"
+            options={{
+              headerShown: false,
+            }}
+          />
         </Stack>
       </SafeAreaView>
       <StatusBar style="dark" />
