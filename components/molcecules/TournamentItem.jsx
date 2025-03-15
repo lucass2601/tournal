@@ -1,18 +1,38 @@
 import { StyleSheet, Text, View, Pressable, Image } from "react-native";
 import { colors, typography } from "@/theme/theme";
 
+import { DateTime } from "luxon";
+
 import IconClock from "@/assets/icons/icon-clock.svg";
 import IconUser from "@/assets/icons/icon-user.svg";
 
+const tournamentTypeDefinitions = {
+  knockout: "Knockout",
+  roundrobin: "Round Robin",
+};
+
+const tournamentStatusDefinitions = {
+  pending: "Pending",
+  active: "Active",
+  completed: "Completed",
+};
+
 const TournamentItem = ({
   title = "Turniername",
-  date = "Datum",
+  dateTime,
   participants = 48,
   tournamentType = "Knockout",
+  tournamentStatus,
   onPress,
   style,
   ...props
 }) => {
+  const userTimeZone = DateTime.local().zoneName;
+
+  const dt = DateTime.fromISO(dateTime, { zone: "utc" }).setZone(userTimeZone);
+  const formattedDate = dt.toFormat("LLL d"); // z. B. "Mar 16"
+  const formattedTime = dt.toLocaleString(DateTime.TIME_SIMPLE);
+
   return (
     <Pressable onPress={onPress} style={[styles.container, style]} {...props}>
       <View style={styles.header}>
@@ -21,12 +41,12 @@ const TournamentItem = ({
           source={require("@/assets/images/icon.png")}
         />
         <View style={styles.infoContainer}>
-          <Text style={styles.title}>Example Tournament</Text>
+          <Text style={styles.title}>{title}</Text>
           <View style={styles.dateTimeContainer}>
             <IconClock width={16} height={16} color={colors["grey-500"]} />
-            <Text style={styles.date_time}>Mar 16</Text>
+            <Text style={styles.date_time}>{formattedDate}</Text>
             <View style={styles.ellipse}></View>
-            <Text style={styles.date_time}>05:00 PM</Text>
+            <Text style={styles.date_time}>{formattedTime}</Text>
           </View>
         </View>
       </View>
@@ -45,10 +65,12 @@ const TournamentItem = ({
           </View>
           <View style={styles.ellipse}></View>
           <Text style={[styles.tournamentType, styles.statsContainerText]}>
-            {tournamentType}
+            {tournamentTypeDefinitions[tournamentType]}
           </Text>
         </View>
-        <Text style={styles.status}>Pending</Text>
+        <Text style={[styles.status, styles[`status__${tournamentStatus}`]]}>
+          {tournamentStatusDefinitions[tournamentStatus]}
+        </Text>
       </View>
     </Pressable>
   );
@@ -109,6 +131,12 @@ const styles = StyleSheet.create({
   status: {
     ...typography.body.small.bold,
     color: colors["grey-400"],
+  },
+  status__active: {
+    color: colors["primary-600"],
+  },
+  status__completed: {
+    color: colors["error-600"],
   },
   ellipse: {
     width: 3,
