@@ -4,13 +4,17 @@ import { colors } from "@/theme/theme";
 
 import IconCheck from "@/assets/icons/icon-check.svg";
 
-const Checkbox = ({ checked = false, onPress, style, ...props }) => {
+const Checkbox = ({ checked = false, onPress, style, size = 24, ...props }) => {
   return (
     <Pressable onPress={onPress} style={style} {...props}>
-      <View style={styles.box}>
+      <View style={[styles.box, { width: size, height: size }]}>
         {checked && (
-          <View style={styles.innerBox}>
-            <IconCheck color={colors.white} width={16} height={16} />
+          <View style={[styles.innerBox, { width: size, height: size }]}>
+            <IconCheck
+              color={colors.white}
+              width={size * (2 / 3)}
+              height={size * (2 / 3)}
+            />
           </View>
         )}
       </View>
@@ -22,8 +26,6 @@ export default Checkbox;
 
 const styles = StyleSheet.create({
   box: {
-    width: 24,
-    height: 24,
     borderWidth: 1,
     borderRadius: 12,
     borderColor: colors["grey-200"],
@@ -31,8 +33,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   innerBox: {
-    width: 24,
-    height: 24,
     backgroundColor: colors["primary-600"],
     borderRadius: 12,
     justifyContent: "center",
